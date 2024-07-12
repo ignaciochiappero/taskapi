@@ -5,9 +5,9 @@ import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb://localhost/tasksdb'),
-    TasksModule,
     ConfigModule.forRoot(),
+    MongooseModule.forRoot(process.env.MONGODB_URL),
+    TasksModule,
   ],
 })
 export class AppModule {}
